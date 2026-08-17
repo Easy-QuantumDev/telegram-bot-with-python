@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ec6becf2-0ce8-4baa-859a-d9687ed7e148" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp-bot/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp-bot/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +99,10 @@
       <option name="presentableId" value="Default" />
       <updated>1786280422587</updated>
       <workItem from="1786280423172" duration="2602000" />
-      <workItem from="1786350655144" duration="2259000" />
+      <workItem from="1786350655144" duration="2588000" />
+      <workItem from="1786363012840" duration="8000" />
+      <workItem from="1786391580213" duration="11000" />
+      <workItem from="1786973930129" duration="2215000" />
     </task>
     <servers />
   </component>
@@ -115,5 +119,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/telegram_bots$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1786354753412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WeatherApp-bot" />
   </component>
 </project>
