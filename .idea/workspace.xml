@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ec6becf2-0ce8-4baa-859a-d9687ed7e148" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherApp-bot/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp-bot/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp-bot/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp-bot/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text-to-speech/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text-to-speech/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +37,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\telegram-bots" />
       <recent name="C:\Users\User\Desktop\telegram-bots\text-to-speech" />
     </key>
   </component>
@@ -102,7 +104,9 @@
       <workItem from="1786350655144" duration="2588000" />
       <workItem from="1786363012840" duration="8000" />
       <workItem from="1786391580213" duration="11000" />
-      <workItem from="1786973930129" duration="2215000" />
+      <workItem from="1786973930129" duration="2803000" />
+      <workItem from="1787139988074" duration="34000" />
+      <workItem from="1787155105337" duration="1023000" />
     </task>
     <servers />
   </component>

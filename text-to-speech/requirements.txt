@@ -1,2 +1,2 @@
-pyTelegramBotAPI == 4.36.0
+telebot == 0.0.5
 gTTS == 2.5.4
