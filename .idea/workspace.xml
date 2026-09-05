@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ec6becf2-0ce8-4baa-859a-d9687ed7e148" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherApp-bot/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp-bot/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text-to-speech/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text-to-speech/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech_to_text/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/speech_to_text/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,9 @@
       <workItem from="1786391580213" duration="11000" />
       <workItem from="1786973930129" duration="2803000" />
       <workItem from="1787139988074" duration="34000" />
-      <workItem from="1787155105337" duration="1023000" />
+      <workItem from="1787155105337" duration="1718000" />
+      <workItem from="1787243160892" duration="126000" />
+      <workItem from="1788627163142" duration="1937000" />
     </task>
     <servers />
   </component>

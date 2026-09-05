@@ -59,6 +59,7 @@ def voice_handler(msg):
     )
     except sr.UnknownValueError:
          bot.send_message(msg.chat.id,'❌ I couldnt understand the audio.')
+
      except sr.RequestError:
          bot.send_message(msg.chat.id,'⚠️ Speech recognition service is unavailable.')
 bot.infinity_polling()
