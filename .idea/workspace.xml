@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ec6becf2-0ce8-4baa-859a-d9687ed7e148" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/speech_to_text/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/speech_to_text/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +31,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fastapi-course" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -107,7 +106,9 @@
       <workItem from="1787139988074" duration="34000" />
       <workItem from="1787155105337" duration="1718000" />
       <workItem from="1787243160892" duration="126000" />
-      <workItem from="1788627163142" duration="1937000" />
+      <workItem from="1788627163142" duration="2649000" />
+      <workItem from="1788692011385" duration="74000" />
+      <workItem from="1788697529974" duration="604000" />
     </task>
     <servers />
   </component>
