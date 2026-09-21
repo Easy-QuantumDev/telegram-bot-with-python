@@ -22,4 +22,10 @@ def welcome(msg):
 /rules
 """
         )
+@bot.message_handler(commands=['rules'])            
+def rules(msg):
+    bot.reply_to(msg,'rules')
+
+    
+            
             
