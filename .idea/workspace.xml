@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ec6becf2-0ce8-4baa-859a-d9687ed7e148" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech_to_text/.env" beforeDir="false" afterPath="$PROJECT_DIR$/speech_to_text/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fastapi-course" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -39,8 +40,8 @@
       <recent name="C:\Users\User\Desktop\telegram-bots\text-to-speech" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.e-commerce">
+    <configuration name="e-commerce" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="telegram-bots" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -48,12 +49,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WeatherApp-bot" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/e-commerce-robot" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WeatherApp-bot/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/e-commerce-robot/e-commerce.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -84,9 +85,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.e-commerce" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.e-commerce" />
       </list>
     </recent_temporary>
   </component>
@@ -109,6 +114,9 @@
       <workItem from="1788627163142" duration="2649000" />
       <workItem from="1788692011385" duration="74000" />
       <workItem from="1788697529974" duration="604000" />
+      <workItem from="1791149705204" duration="1860000" />
+      <workItem from="1791293465432" duration="29000" />
+      <workItem from="1791314431224" duration="1537000" />
     </task>
     <servers />
   </component>
@@ -128,5 +136,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/telegram_bots$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1786354753412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WeatherApp-bot" />
+    <SUITE FILE_PATH="coverage/telegram_bots$e_commerce.coverage" NAME="e-commerce Coverage Results" MODIFIED="1791315894766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/e-commerce-robot" />
   </component>
 </project>
