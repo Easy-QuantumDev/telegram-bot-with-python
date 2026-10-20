@@ -41,6 +41,67 @@ def get_product(product_id):
             return product
     return None
 
+def show_cart(chat_id,user_id,message_id=None):
+    user_cart = carts.get(user_id,{})
+    if not user_cart:
+        text = '🛒 سبد خرید شما خالی است.'
+        if message_id is not None:
+            bot.edit_message_text(text,chat_id,message_id,)
+        else:
+            bot.send_message(chat_id,text)
+        return
+    
+    text = "🛒 سبد خرید شما:\n\n"
+    total_price = 0
+    keyboard = types.InlineKeyboardMarkup()
+    for product_id,quantity in user_cart.items():
+        product = get_product(product_id) 
+        if product is not None:
+            continue
+        item_total = product['price']*quantity   
+        total_price +=item_total
+        text += (
+            f"📦 {product['name']}\n"
+            f"🔢 تعداد: {quantity}\n"
+            f"💰 قیمت: ${item_total}\n\n"
+        )
+        
+        keyboard.row(
+            types.InlineKeyboardButton(
+                "➕",
+                callback_data=f"cart:increase:{product_id}"
+            ),
+            types.InlineKeyboardButton(
+                "➖",
+                callback_data=f"cart:decrease:{product_id}"
+            ),
+            types.InlineKeyboardButton(
+                "🗑️",
+                callback_data=f"cart:remove:{product_id}"
+            )
+        )
+        
+        text += "━━━━━━━━━━━━\n"
+        text += f"💳 مجموع کل: ${total_price}"
+        keyboard.row(types.InlineKeyboardButton("ثبت سفارش",callback_data=f'cart:checkout'))
+
+        if message_id is not None:
+            bot.edit_message_text(
+            text,
+            chat_id,
+            message_id,
+            reply_markup=keyboard
+        )
+        else:
+         
+            bot.send_message(
+            chat_id,
+            text,
+            reply_markup=keyboard
+        )
+            
+ 
+
 
 def main_menu():
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -81,46 +142,10 @@ def products(msg):
 
 @bot.message_handler(func=lambda msg:msg.text=="🛒 سبد خرید")
 def cart(msg):
-    user_id = msg.from_user.id
-    user_cart = carts.get(user_id,{})
-    if not user_cart:
-        bot.send_message(msg.chat.id,"سبد خرید شما خالی است 🛒 ")
-        return
-    text = "🛒 سبد خرید شما:\n\n"
-    total_price =0
-    for product_id , quantity in user_cart.items():
-        product = get_product(product_id)
-        if product is None:
-            continue
-        item_total = product['price']*quantity
-        total_price += item_total
-        text += (
-            f"📦 {product['name']}\n"
-            f"🔢 تعداد: {quantity}\n"
-            f"💰 قیمت: ${item_total}\n\n"
-
-        )
-        keyboard = types.InlineKeyboardMarkup()
-        increase = types.InlineKeyboardButton( "➕",callback_data=f'cart:increase:{product_id}')
-        decrease = types.InlineKeyboardButton(
-            "➖",
-            callback_data=f"cart:decrease:{product_id}"
-        )
-
-        remove = types.InlineKeyboardButton(
-            "🗑️",
-            callback_data=f"cart:remove:{product_id}"
-        )
-        keyboard.row(increase,decrease,remove)
-        text += "━━━━━━━━━━━━\n"
-        text += f"💳 مجموع کل: ${total_price}"
-
-        bot.send_message(
-            msg.chat.id,
-            text,
-            reply_markup=keyboard
-
-        )
+    show_cart(
+        chat_id=msg.chat.id,
+        user_id=msg.from_user.id
+    )
 
 @bot.message_handler(func=lambda msg:msg.startswith("cart:increase:"))
 def increase_cart_item (call):
@@ -215,6 +240,79 @@ def back_btn(call):
         call.message.message_id,
         reply_markup=keyboard
     )
+    
+    
+@bot.callback_query_handler(func=lambda call:call.data.startswith('cart:increase:'))
+def increase_product(call):
+    user_id = call.from_user.id
+    product_id = int(call.data.split(':')[2])
+    user_cart = carts.get(user_id,{})
+    product  = get_product(product_id)
+    if product is None or product_id not in user_cart:
+        bot.answer_callback_query(call.id,"محصول در سبد خرید پیدا نشد.")
+        return
+    if user_cart[product_id] >=product['stock']:
+        bot.answer_callback_query(call.id,"موجودی این محصول کافی نیست.")
+        return 
+    user_cart[product_id] +=1
+    bot.answer_callback_query(call.id,"✅ تعداد محصول افزایش یافت.")
+    show_cart(chat_id=call.message.chat.id,user_id=user_id,message_id=call.message.id)
+
+@bot.callback_query_handler(func=lambda call:call.data.startswith('cart:decrease:'))
+def decrease_product(call):    
+    user_id = call.from_user.id
+    product_id = int(call.data.split(':')[2])
+    user_cart = carts.get(user_id,{})
+    product = get_product(user_id)
+    if product is None or product_id not in user_cart:
+        bot.answer_callback_query(call.id,"محصول در سبد خرید پیدا نشد.")
+        return
+    if user_cart[product_id] <= 1:
+        bot.answer_callback_query(call.id,"محصول نمیتواند صفر باشد")
+        
+        return    
+    user_cart[product_id]-=1
+    bot.answer_callback_query(call.id,"✅ تعداد محصول کاهش یافت.")
+    show_cart(chat_id=call.message.chat.id,user_id=user_id,message_id=call.message.message_id)
+@bot.callback_query_handler(func=lambda call : call.data.startswith("cart:remove:"))
+def remove_product(call):
+    user_id = call.from_user.id
+    product_id = int(call.data.split(":")[2])
+    product = get_product(product_id)
+    user_cart = carts.get(user_id,{})
+    if product is None or product_id not in user_cart:
+        bot.answer_callback_query(call.id,"محصول در سبد خرید پیدا نشد.")
+        return
+
+    del user_cart[product_id]
+    bot.answer_callback_query(call.id,'✅ محصول با موفقیت حذف شد ')
+    show_cart(chat_id=call.message.chat.id,user_id=user_id,message_id=call.message.message_id)
+
+
+@bot.callback_query_handler(func=lambda call : call.data.startswith("cart:checkout"))
+
+def checkout(call):
+    user_id = call.from_user.id
+    user_cart = carts.get(user_id,{})
+    if not user_cart  :
+        bot.answer_callback_query(call.id,'سبد خرید خالی است ')
+        return
+    total_price = 0
+    text = "🛍️ محصولات سفارش شما:\n\n"
+    for product_id , quantity in user_cart.items():
+        product = get_product(product_id)
+        item_total = product["price"] * quantity
+        total_price += item_total
+        text += (
+            f"📦 {product['name']}\n"
+            f"🔢 تعداد: {quantity}\n"
+            f"💰 قیمت این محصول: ${item_total}\n\n"
+        )
+    text += f"💳 مبلغ نهایی: ${total_price}"
+    bot.answer_callback_query(call.id)
+    bot.send_message(call.message.chat.id, text)
+
+
 
 print('bot is running')
 bot.infinity_polling()
